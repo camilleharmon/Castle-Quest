@@ -13,6 +13,7 @@ public class ListLocations
 			locations.add(new Location("Well", "Narrator: A lonely well sits here, it is weathered and worn but it remains sturdy. You glance down the well to see if there is some water at the bottom. It’s dark, but there might be a few buckets worth below.", "Right(1) or Left(2)", "Fill Bucket(3)", ""));
 			locations.add(new Location("Blacksmith's Shop", "Narrator: A cozy blacksmith’s shop sits in the hills. You can see Barry, the Blacksmith, mending a tool.", "Right(1) or Left(2) or Talk to Barry(3)", "", ""));
 			locations.add(new Location("Barry", "Barry: Welcome to my shop. What can I do for you?", "What do you sell?(1) or Who are you?(2), or Can you tell me a joke?(3)", "Can you sharpen this sword?(4)", "I have water!(5)"));
+			locations.add(new Location("Cave Entrance", "Narrator: A cave lies before you. It looks like a makeshift pile of rocks precariously balanced together. Grass and moss peak through the cracks. The forest around it helps it blend into the hill.", "", "", ""));
 			
 			
 			
