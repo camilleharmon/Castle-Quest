@@ -6,12 +6,14 @@ public class Character
 			private boolean sword;
 			private int hitpoints;
 			private int level;
+			private int health;
 			
-			public Character(String n, boolean s, int HP, int l) {
+			public Character(String n, boolean s, int HP, int l, int h) {
 				name = n;
 				sword = s;
 				hitpoints = HP;
 				level = l;
+				health = h;
 			}
 
 			public String getName()
@@ -53,6 +55,14 @@ public class Character
 				{
 					this.level = level;
 				}
+
+			public int getHealth() {
+				return health;
+			}
+
+			public void setHealth(int health) {
+				this.health = health;
+			}
 			
 			
 

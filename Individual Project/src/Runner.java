@@ -14,7 +14,7 @@ public class Runner
 		static Scanner userStringInput = new Scanner (System.in);
 		static Scanner userIntInput = new Scanner (System.in);
 		
-		static Character hero = new Character("Roger", false, 0, 1);
+		static Character hero = new Character("Roger", false, 0, 1, 5);
 		
 		static int choice = 1;
 		static String choice2 = "";
@@ -27,12 +27,15 @@ public class Runner
 		static boolean lookingForWater = false;
 		static boolean hasWater = false;
 		static boolean firstBarry = true;
+		static boolean firstBattle = true;
 		
 		public static void main(String[] args)
 			{
-				ListLocations.fillList();
+				ListLocations.fillLocations();
+				ListBattle.fillMoves();
+				ListMonsters.fillMonsters();
 				
-				ImageIcon icon = new ImageIcon(("hero.jpg"));
+				ImageIcon icon = new ImageIcon(("heroSTART.PNG"));
 				JFrame frame = new JFrame();
 				JOptionPane.showMessageDialog(
 						frame,
@@ -41,7 +44,7 @@ public class Runner
 						JOptionPane.QUESTION_MESSAGE,
 						icon);
 				
-				barry();
+				//well();
 				
 				welcomePlayer();
 			   
@@ -723,7 +726,7 @@ public class Runner
 		}
 		
 		public static void barry() {
-			ImageIcon icon = new ImageIcon(("barry.jpg"));
+			ImageIcon icon = new ImageIcon(("barry.PNG"));
 			JFrame frame = new JFrame();
 			JOptionPane.showMessageDialog(
 					frame,
@@ -805,7 +808,7 @@ public class Runner
 		}
 		
 		public static void barry2() {
-			ImageIcon icon = new ImageIcon(("barry.jpg"));
+			ImageIcon icon = new ImageIcon(("barry.PNG"));
 			JFrame frame = new JFrame();
 			JOptionPane.showMessageDialog(
 					frame,
@@ -835,7 +838,7 @@ public class Runner
 					JOptionPane.showMessageDialog(
 							frame,
 							"Barry: I sell weapons, tools, armour, anything to do with metal. I’ll also fix things that require metal working.");
-							barry();		
+							barry2();		
 							break;
 						}
 				case "Who are you?":
@@ -843,7 +846,7 @@ public class Runner
 					JOptionPane.showMessageDialog(
 							frame,
 							"Barry: I’m Barry the Blacksmith. We are neighbors- I brought you cookies when you first moved in. We haven’t talked since. Kinda rude.");
-							barry();
+							barry2();
 							break;
 						}
 				case "Can you tell me a joke?":
@@ -854,32 +857,32 @@ public class Runner
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: What did the ocean say to the beach? Nothing, it just waved.");
-								barry();
+								barry2();
 							}else if(randomizer == 2) {
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: What's the best thing about Switzerland? I don't know, but the flag is a big plus.");
-								barry();
+								barry2();
 							}else if (randomizer == 3) {
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: What do you call a poor Santa Claus? St. Nickel-less.");
-								barry();
+								barry2();
 							}else if (randomizer == 4) {
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: I don't trust those trees. They seem kind of shady.");
-								barry();
+								barry2();
 							}else if (randomizer == 5) {
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: Did you hear the rumor about butter? Well, I'm not going to spread it!");
-								barry();
+								barry2();
 							}else if(randomizer == 6) {
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: How does a taco say grace? Lettuce pray.");
-								barry();
+								barry2();
 							}
 							
 						}
@@ -910,7 +913,7 @@ public class Runner
 		}
 		
 		public static void barry3() {
-			ImageIcon icon = new ImageIcon(("barry.jpg"));
+			ImageIcon icon = new ImageIcon(("barry.PNG"));
 			JFrame frame = new JFrame();
 			JOptionPane.showMessageDialog(
 					frame,
@@ -940,7 +943,7 @@ public class Runner
 					JOptionPane.showMessageDialog(
 							frame,
 							"Barry: I sell weapons, tools, armour, anything to do with metal. I’ll also fix things that require metal working.");
-							barry();		
+							barry3();		
 							break;
 						}
 				case "Who are you?":
@@ -948,7 +951,7 @@ public class Runner
 					JOptionPane.showMessageDialog(
 							frame,
 							"Barry: I’m Barry the Blacksmith. We are neighbors- I brought you cookies when you first moved in. We haven’t talked since. Kinda rude.");
-							barry();
+							barry3();
 							break;
 						}
 				case "Can you tell me a joke?":
@@ -959,32 +962,32 @@ public class Runner
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: What did the ocean say to the beach? Nothing, it just waved.");
-								barry();
+								barry3();
 							}else if(randomizer == 2) {
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: What's the best thing about Switzerland? I don't know, but the flag is a big plus.");
-								barry();
+								barry3();
 							}else if (randomizer == 3) {
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: What do you call a poor Santa Claus? St. Nickel-less.");
-								barry();
+								barry3();
 							}else if (randomizer == 4) {
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: I don't trust those trees. They seem kind of shady.");
-								barry();
+								barry3();
 							}else if (randomizer == 5) {
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: Did you hear the rumor about butter? Well, I'm not going to spread it!");
-								barry();
+								barry3();
 							}else if(randomizer == 6) {
 								JOptionPane.showMessageDialog(
 										frame,		
 								"Barry: How does a taco say grace? Lettuce pray.");
-								barry();
+								barry3();
 							}
 							
 						}
@@ -1008,6 +1011,22 @@ public class Runner
 							JOptionPane.showMessageDialog(
 									frame,	
 									"Barry: Use it well.");
+							JOptionPane.showMessageDialog(
+									frame,
+									"Narrator: Great job! I’m sure it will be very useful in the near future.");
+							JOptionPane.showMessageDialog(
+									frame,
+									hero.getName() + ": How do I use it?");
+							JOptionPane.showMessageDialog(
+									frame,
+									"Narrator: Good question.");
+							JOptionPane.showMessageDialog(
+									frame,
+									hero.getName() + ": Don't tell me you don't know about this either.");
+							JOptionPane.showMessageDialog(
+									frame,
+									"Narrator: You'll see how it works. Head right to the cave so we can practice.");
+							
 							barry();
 						}
 				}
@@ -1029,15 +1048,7 @@ public class Runner
 				{
 				case 0:
 						{
-							if(lookingForWater) {
-								barry2();
-							}else if (hasWater){
-								barry3();
-							}else if (firstBarry){
-								barry2();
-							}else {
-								barry();
-							}
+							blacksmithshop();
 							break;
 						}
 				case 1:
@@ -1078,7 +1089,111 @@ public class Runner
 		public static void cave() {
 			JOptionPane.showMessageDialog(
 					frame,
-					"Narrator: You enter the huge cavernous cave. Hidden in the darkness of caves, rock formations called speleothems droop from the ceilings like icicles, emerge from the floor like mushrooms, and cover the sides like sheets of a waterfall.");
+					"Narrator: You enter the huge cavernous cave. Hidden in the darkness, rock formations droop from the ceilings like icicles, emerge from the floor like mushrooms, and cover the sides like sheets of a waterfall.");
+			JOptionPane.showMessageDialog(
+					frame,
+					"Narrator: A number strange blob-like creatures is huddled in the corner. One sees you, opening its mouth to reveal sharp teeth.");
+			
+			if(firstBattle) {
+				JOptionPane.showMessageDialog(
+						frame,
+						hero.getName() + ": Whoa what is that?!");
+				JOptionPane.showMessageDialog(
+						frame,
+						"Narrator: It's a Terror!");
+				//brute terror
+				JOptionPane.showMessageDialog(
+						frame,
+						hero.getName() + ": It doesn't look too terrible...");
+				JOptionPane.showMessageDialog(
+						frame,
+						"Narrator: From here, yes, but these little rascals are pretty dangerous if you aren't prepared.");
+				JOptionPane.showMessageDialog(
+						frame,		
+						hero.getName() + ": I'm going to poke one.");
+				JOptionPane.showMessageDialog(
+						frame,
+						"Narrator: Quit it, you’re gonna anger one! I’m the narrator, I make the rules. If you keep bothering me I’m going to write you something to break your leg.");						
+			}
+			
+			Object[] options = {"Exit Cave", "Fight Them", "Go Deeper"};
+			choice = JOptionPane.showOptionDialog(
+					frame, 
+					ListLocations.locations.get(9).getDescription(),
+					ListLocations.locations.get(9).getName(),
+					JOptionPane.YES_NO_CANCEL_OPTION,
+					JOptionPane.QUESTION_MESSAGE,
+					null, 
+					options, 
+					options);
+			
+				switch(choice)
+				{
+				case 0:
+						{
+							caveEntrance();
+							break;
+						}
+				case 1:
+						{
+							battleEntrance();
+							break;
+						}
+				case 2:
+						{
+							if(firstBattle) {
+								JOptionPane.showMessageDialog(
+										frame,
+										"Narrator: You're not ready yet.");
+								cave();
+							}
+							deeperCave();
+						}
+				}				
+			
+			
 		}
-		//array
+		
+		static public void battleEntrance() {
+			ImageIcon icon = new ImageIcon(("monster2.jpg"));
+			JFrame frame = new JFrame();
+			JOptionPane.showMessageDialog(
+					frame,
+					"You have no choice but to fight.",
+					"The Monster Approaches",
+					JOptionPane.QUESTION_MESSAGE,
+					icon);
+			
+			if(firstBattle) {
+				JOptionPane.showMessageDialog(
+						frame,
+						"Narrator: The fight begins. You are level one, you start with 5 hearts. The Terror is level one, it starts with 5 hearts.");
+				directions();
+						
+			}
+		}
+		
+		static public void directions() {
+			JOptionPane.showMessageDialog(
+					frame,
+					"Narrator: Fighting works like ‘Rock, Paper, Scissors’.");
+			JOptionPane.showMessageDialog(
+					frame,
+					"Quick Attack: -1 Heart Damage, no damage when countered with a Heavy Attack");
+			JOptionPane.showMessageDialog(
+					frame,
+					"Heavy Attack: -2 Heart Damage, no damage when countered with another Heavy Attack or a Block");
+			JOptionPane.showMessageDialog(
+					frame,
+					"Block: 0 Damage Taken, damage when countered with Quick Attack");
+			JOptionPane.showMessageDialog(
+					frame,
+					"Health Boost: +1 Hearts Given, no health boost when countered with Quick or Heavy Attack");
+					
+		}
+		
+		static public void deeperCave() {
+			
+		}
+		
 	}
