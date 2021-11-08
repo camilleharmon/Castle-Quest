@@ -5,11 +5,11 @@ public class Battle {
 		private String npcMove;
 		private int playerDamage;
 		private int npcDamage;
-		private int result;
+		private String result;
 		private int playerHealthChange;
 		private int npcHealthChange;
 		
-		public Battle (String pM, String nM, int pD, int nD,int r, int phc, int nhc) {
+		public Battle (String pM, String nM, int pD, int nD,String r, int phc, int nhc) {
 			playerMove = pM;
 			npcMove = nM;
 			playerDamage = pD;
@@ -51,13 +51,15 @@ public class Battle {
 			this.npcDamage = npcDamage;
 		}
 
-		public int getResult() {
-			return result;
-		}
+		public String getResult()
+			{
+				return result;
+			}
 
-		public void setResult(int result) {
-			this.result = result;
-		}
+		public void setResult(String result)
+			{
+				this.result = result;
+			}
 
 		public int getPlayerHealthChange() {
 			return playerHealthChange;

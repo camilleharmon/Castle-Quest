@@ -27,7 +27,10 @@ public class Runner
 		static boolean lookingForWater = false;
 		static boolean hasWater = false;
 		static boolean firstBarry = true;
+		static boolean completeBarryQuest = false;
 		static boolean firstBattle = true;
+		static boolean firstFightConvo = true;
+		static int monsterMove = 0;
 		
 		public static void main(String[] args)
 			{
@@ -44,11 +47,13 @@ public class Runner
 						JOptionPane.QUESTION_MESSAGE,
 						icon);
 				
+				battleEntrance();
+				
 				//well();
 				
-				welcomePlayer();
+				//welcomePlayer();
 			   
-			   entrance();
+			   //entrance();
 			   
 			}
 		
@@ -1027,6 +1032,7 @@ public class Runner
 									frame,
 									"Narrator: You'll see how it works. Head right to the cave so we can practice.");
 							
+							completeBarryQuest = true;
 							barry();
 						}
 				}
@@ -1080,6 +1086,23 @@ public class Runner
 						}
 				case 1:
 						{
+							if(completeBarryQuest == false) {
+								JOptionPane.showMessageDialog(
+										frame,
+										"Narrator: You must be crazy.");
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": What? I like exploring!");
+								JOptionPane.showMessageDialog(
+										frame,
+										"Narrator: With that sword? I don't think so.");
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": Just let me go.");
+								JOptionPane.showMessageDialog(
+										frame,
+										"Narrator: When you die, don't blame me!");
+							}
 							cave();
 							break;
 						}
@@ -1094,27 +1117,7 @@ public class Runner
 					frame,
 					"Narrator: A number strange blob-like creatures is huddled in the corner. One sees you, opening its mouth to reveal sharp teeth.");
 			
-			if(firstBattle) {
-				JOptionPane.showMessageDialog(
-						frame,
-						hero.getName() + ": Whoa what is that?!");
-				JOptionPane.showMessageDialog(
-						frame,
-						"Narrator: It's a Terror!");
-				//brute terror
-				JOptionPane.showMessageDialog(
-						frame,
-						hero.getName() + ": It doesn't look too terrible...");
-				JOptionPane.showMessageDialog(
-						frame,
-						"Narrator: From here, yes, but these little rascals are pretty dangerous if you aren't prepared.");
-				JOptionPane.showMessageDialog(
-						frame,		
-						hero.getName() + ": I'm going to poke one.");
-				JOptionPane.showMessageDialog(
-						frame,
-						"Narrator: Quit it, you’re gonna anger one! I’m the narrator, I make the rules. If you keep bothering me I’m going to write you something to break your leg.");						
-			}
+			firstFightCONVO();
 			
 			Object[] options = {"Exit Cave", "Fight Them", "Go Deeper"};
 			choice = JOptionPane.showOptionDialog(
@@ -1136,6 +1139,15 @@ public class Runner
 						}
 				case 1:
 						{
+							if(completeBarryQuest == false) {
+								JOptionPane.showMessageDialog(
+										frame,
+										"Narrator: You stare it to the jaws of the monster, and suddenly don't feel so confident.");
+								JOptionPane.showMessageDialog(
+										frame,
+										"Narrator: You turn and run out of the cave, and don't stop until you REACH BARRY.");
+								blacksmithshop();
+							}
 							battleEntrance();
 							break;
 						}
@@ -1154,6 +1166,32 @@ public class Runner
 			
 		}
 		
+		static public void firstFightCONVO() {
+			if(firstFightConvo) {
+				if(firstBattle) {
+					JOptionPane.showMessageDialog(
+							frame,
+							hero.getName() + ": Whoa what is that?!");
+					JOptionPane.showMessageDialog(
+							frame,
+							"Narrator: It's a Terror!");
+					JOptionPane.showMessageDialog(
+							frame,
+							hero.getName() + ": It doesn't look too terrible...");
+					JOptionPane.showMessageDialog(
+							frame,
+							"Narrator: From here, yes, but these little rascals are pretty dangerous if you aren't prepared.");
+					JOptionPane.showMessageDialog(
+							frame,		
+							hero.getName() + ": I'm going to poke one.");
+					JOptionPane.showMessageDialog(
+							frame,
+							"Narrator: Quit it, you’re gonna anger one! I’m the narrator, I make the rules. If you keep bothering me I’m going to write you something to break your leg.");						
+					firstFightConvo = false;
+				}
+			}
+		}
+		
 		static public void battleEntrance() {
 			ImageIcon icon = new ImageIcon(("monster2.jpg"));
 			JFrame frame = new JFrame();
@@ -1164,12 +1202,138 @@ public class Runner
 					JOptionPane.QUESTION_MESSAGE,
 					icon);
 			
+			
 			if(firstBattle) {
 				JOptionPane.showMessageDialog(
 						frame,
-						"Narrator: The fight begins. You are level one, you start with 5 hearts. The Terror is level one, it starts with 5 hearts.");
+						"Narrator: The fight begins. You are level " + hero.getLevel() + ", you start with " + hero.getHealth() + " hearts. The Terror is level " + ListMonsters.monsters.get(0).getLevel() + " , it starts with " + ListMonsters.monsters.get(0).getHealth() +" hearts.");
 				directions();
-						
+				battle();		
+			}
+			
+			battle();
+			
+		}
+		
+		static public void battle() {
+			JOptionPane.showMessageDialog(
+					frame,
+					hero.getName() + ": " + hero.getHealth() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListMonsters.monsters.get(0).getHealth());
+			
+			Object[] options = {"Quick Attack", "Heavy Attack", "Block", "Health Boost"};
+			choice = JOptionPane.showOptionDialog(
+					frame, 
+					"Narrator: What do you do?",
+					"Battle",
+					JOptionPane.YES_NO_CANCEL_OPTION,
+					JOptionPane.QUESTION_MESSAGE,
+					null, 
+					options, 
+					options);
+			
+			monsterMove = 1;
+			//monsterMove = (int)(Math.random() *4)+1;
+			
+				switch(choice)
+				{
+				case 0:
+						{
+							if(monsterMove == 1) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(0).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(0).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(0).getResult());
+								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(0).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(0).getPlayerDamage());
+								
+								checkDeath();
+								
+							}else if(monsterMove == 2) {
+								
+								
+							}else if(monsterMove == 3) {
+								
+								
+							}else if(monsterMove == 4) {
+								
+								
+							}
+							
+							break;
+						}
+				case 1:
+						{
+							if(monsterMove == 1) {
+								
+								
+							}else if(monsterMove == 2) {
+								
+								
+							}else if(monsterMove == 3) {
+								
+								
+							}else if(monsterMove == 4) {
+								
+								
+							}
+							
+							break;
+						}
+				case 2:
+						{
+							if(monsterMove == 1) {
+								
+								
+							}else if(monsterMove == 2) {
+								
+								
+							}else if(monsterMove == 3) {
+								
+								
+							}else if(monsterMove == 4) {
+								
+								
+							}
+							
+							break;
+						}
+				case 3:
+						{
+							if(monsterMove == 1) {
+								
+								
+							}else if(monsterMove == 2) {
+								
+								
+							}else if(monsterMove == 3) {
+								
+								
+							}else if(monsterMove == 4) {
+								
+								
+							}
+							
+						}
+				}
+			
+		}
+
+		static public void checkDeath() {
+			if(hero.getHealth() == 0) {
+				JOptionPane.showMessageDialog(
+						frame,
+						"Narrator: Your health is 0, you loose.");
+				JOptionPane.showMessageDialog(
+						frame,
+						"Narrator: You stumble out of the cave, and wait to heal.");
+				hero.setHealth((hero.getHealth() + 5));
+				
+				caveEntrance();
+			}else if (ListMonsters.monsters.get(0).getHealth() == 0) {
+				
 			}
 		}
 		
