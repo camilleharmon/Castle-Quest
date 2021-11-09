@@ -1231,8 +1231,10 @@ public class Runner
 					options, 
 					options);
 			
-			monsterMove = 1;
-			//monsterMove = (int)(Math.random() *4)+1;
+			//monsterMove = 1;
+			System.out.println(monsterMove);
+			System.out.println(choice);
+			monsterMove = (int)(Math.random() *4)+1;
 			
 				switch(choice)
 				{
@@ -1252,13 +1254,45 @@ public class Runner
 								checkDeath();
 								
 							}else if(monsterMove == 2) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(4).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(4).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(4).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(4).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(4).getPlayerDamage());
+								
+								checkDeath();
 								
 							}else if(monsterMove == 3) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(8).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(8).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(8).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(8).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(8).getPlayerDamage());
+								
+								checkDeath();
 								
 							}else if(monsterMove == 4) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(12).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(12).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(12).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(12).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(12).getPlayerDamage());
+								
+								//no health change, tied
+								
+								checkDeath();
 								
 							}
 							
@@ -1267,16 +1301,58 @@ public class Runner
 				case 1:
 						{
 							if(monsterMove == 1) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(1).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(1).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(1).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(1).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(1).getPlayerDamage());
+								
+								checkDeath();
 								
 							}else if(monsterMove == 2) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(5).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(5).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(5).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(5).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(5).getPlayerDamage());
+								
+								checkDeath();
 								
 							}else if(monsterMove == 3) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(9).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(9).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(9).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(9).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(9).getPlayerDamage());
+								
+								checkDeath();
 								
 							}else if(monsterMove == 4) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(13).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(13).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(13).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(13).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(13).getPlayerDamage());
+								
+								//no health change, damage taken from heavy attack
+								
+								checkDeath();
 								
 							}
 							
@@ -1285,16 +1361,60 @@ public class Runner
 				case 2:
 						{
 							if(monsterMove == 1) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(2).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(2).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(2).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(2).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(2).getPlayerDamage());
+								
+								checkDeath();
 								
 							}else if(monsterMove == 2) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(6).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(6).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(6).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(6).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(6).getPlayerDamage());
+								
+								checkDeath();
 								
 							}else if(monsterMove == 3) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(10).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(10).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(10).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(10).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(10).getPlayerDamage());
+								
+								checkDeath();
 								
 							}else if(monsterMove == 4) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(14).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(14).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(14).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(14).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(14).getPlayerDamage());
+								
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() + 1);
+								
+								//health change other was block
+								
+								checkDeath();
 								
 							}
 							
@@ -1303,16 +1423,68 @@ public class Runner
 				case 3:
 						{
 							if(monsterMove == 1) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(3).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(3).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(3).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(3).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(3).getPlayerDamage());
+								
+								//no change, quick denied
+								
+								checkDeath();
 								
 							}else if(monsterMove == 2) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(7).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(7).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(7).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(7).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(7).getPlayerDamage());
+								
+								//damage taken from Heavy
+								
+								checkDeath();
 								
 							}else if(monsterMove == 3) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(11).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(11).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(11).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(11).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(11).getPlayerDamage());
+								
+								hero.setHealth((hero.getHealth() + 1));
+								
+								//health change other block
+								
+								checkDeath();
 								
 							}else if(monsterMove == 4) {
+								JOptionPane.showMessageDialog(
+										frame,
+										hero.getName() + ": " + ListBattle.battleMoves.get(15).getPlayerMove() + "          " + ListMonsters.monsters.get(0).getName() + ": " + ListBattle.battleMoves.get(15).getNpcMove());
+								JOptionPane.showMessageDialog(
+										frame,
+										"You " + ListBattle.battleMoves.get(15).getResult());
 								
+								hero.setHealth(hero.getHealth() - ListBattle.battleMoves.get(15).getNpcDamage());
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() - ListBattle.battleMoves.get(15).getPlayerDamage());
+								
+								hero.setHealth((hero.getHealth() + 1));
+								
+								ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() + 1);
+								
+								checkDeath();
 								
 							}
 							
@@ -1322,7 +1494,7 @@ public class Runner
 		}
 
 		static public void checkDeath() {
-			if(hero.getHealth() == 0) {
+			if(hero.getHealth() <= 0) {
 				JOptionPane.showMessageDialog(
 						frame,
 						"Narrator: Your health is 0, you loose.");
@@ -1331,9 +1503,23 @@ public class Runner
 						"Narrator: You stumble out of the cave, and wait to heal.");
 				hero.setHealth((hero.getHealth() + 5));
 				
-				caveEntrance();
-			}else if (ListMonsters.monsters.get(0).getHealth() == 0) {
+				ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() + 5);
 				
+				caveEntrance();
+			}else if (ListMonsters.monsters.get(0).getHealth() <= 0) {
+				JOptionPane.showMessageDialog(
+						frame,
+						"Narrator: The Terror's health is 0, you win!");
+				JOptionPane.showMessageDialog(
+						frame,
+						"Narrator: You step out of the cave, feeling accomplished.");
+				hero.setHealth((hero.getHealth() + 5));
+				
+				ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() + 5);
+				
+				caveEntrance();
+			}else {
+				battle();
 			}
 		}
 		
