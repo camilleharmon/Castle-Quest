@@ -47,13 +47,13 @@ public class Runner
 						JOptionPane.QUESTION_MESSAGE,
 						icon);
 				
-				battleEntrance();
+				//battleEntrance();
 				
 				//well();
 				
-				//welcomePlayer();
+				welcomePlayer();
 			   
-			   //entrance();
+			   entrance();
 			   
 			}
 		
@@ -1501,7 +1501,11 @@ public class Runner
 				JOptionPane.showMessageDialog(
 						frame,
 						"Narrator: You stumble out of the cave, and wait to heal.");
+				hero.setHealth(0);
+				
 				hero.setHealth((hero.getHealth() + 5));
+				
+				ListMonsters.monsters.get(0).setHealth(0);
 				
 				ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() + 5);
 				
@@ -1513,7 +1517,11 @@ public class Runner
 				JOptionPane.showMessageDialog(
 						frame,
 						"Narrator: You step out of the cave, feeling accomplished.");
+				hero.setHealth(0);
+				
 				hero.setHealth((hero.getHealth() + 5));
+				
+				ListMonsters.monsters.get(0).setHealth(0);
 				
 				ListMonsters.monsters.get(0).setHealth(ListMonsters.monsters.get(0).getHealth() + 5);
 				
